@@ -3,28 +3,31 @@
 #include <string>
 
 using namespace std;
-void vonuchiipalindrom(string skin) {
-
-	string temp;
-	bool t = true;
-			for (int i = skin.size() - 1; i >= 0; --i) {
-				temp += skin[i];
-				t = false;
+bool vonuchiipalindrom(string augmenta)
+{
+		int rainonme = augmenta.length();
+		for (int i = 0; i < rainonme / 2; ++i)
+		{
+			if (augmenta[i] != augmenta[rainonme - i - 1])
+			{
+				return 0;
 			}
-			if (skin == temp) {
-				cout << "palindrome:)\n";
-			}
-			else {
-				cout << "isn't palindrome:(\n";
 		}
+		return 1;
 }
 
-
-
-int main() {
-	string skin;
-	cout << "can ya enter any word?:\n";
-	cin >> skin;
-	vonuchiipalindrom(skin);
-	return(0);
+int main()
+{
+		string TS;
+		cout << "can ya'll enter the Palindrome or not and i'll find the truth about: ";
+		getline(cin, TS);
+		for (int j = 0; j < TS.length(); j++)
+		{
+			if (TS[j] == ' ') TS.erase(j, 1);
+		}
+		if (vonuchiipalindrom(TS))
+			cout << "Palindrome:)\n";
+		else
+			cout << "Isn't Palindrome:(\n";
+		return 0;
 }
